@@ -1,0 +1,47 @@
+# Template file for 'mycroft-core'
+pkgname=mycroft-core
+version=19.8.5
+revision=1
+#wrksrc=
+#create_wrksrc=yes
+#archs="i686 x86_64"
+build_style=python3-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="pkg-config"
+makedepends="mimic-devel libffi-devel portaudio-devel libjpeg-turbo-devel icu-devel fann-devel python3-setuptools"
+depends="swig curl jq flac python3-gobject python3-six python3-requests python3-PyAudio python3-tornado python3-websocket-client python3-pyserial python3-psutil python3-Pillow python3-dateutil python3-chromecast python3-google-api-python-client python3-fasteners python3-yaml"
+
+# According to https://github.com/MycroftAI/mycroft-core/issues/1676 pulseaudio
+# isn't required.
+
+# Missing dependencies:
+# python3-pyee
+# python3-msm
+# python3-msk
+# python3-adapt-parser
+# python3-padatious
+# python3-fann2
+# python3-padaos
+# python3-precise-runner
+# python3-petact
+# python3-inflection
+# python3-requests-futures
+# python3-pyalsaaudio
+# python3-xmlrunner
+# python3-SpeechRecognition
+# python3-pocketsphinx
+
+# I think these are optional:
+# python3-vlc # (for vlc audio backend)
+# python3-gTTS # (for google tts engine)
+
+short_desc="Mycroft Artificial Intelligence platform"
+maintainer="... <...>"
+license="Apache-2.0"
+homepage="https://github.com/MycroftAI/mycroft-core"
+distfiles="https://codeload.github.com/MycroftAI/mycroft-core/tar.gz/release/v${version}"
+checksum=ecfdf94d1075bf7f4c1bf92481d1420cfeb5e0fc3f96b1f72fcfb60e0a0baba5
