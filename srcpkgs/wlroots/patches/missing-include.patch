@@ -1,0 +1,13 @@
+Fixes FTBFS, see swaywm/wlroots PR #1863
+diff --git glgen.sh glgen.sh
+index 7324fdf6..31af2812 100755
+--- glgen.sh
++++ glgen.sh
+@@ -75,6 +75,7 @@ cat > "$OUTDIR/$BASE.h" << EOF
+ 
+ #include <EGL/egl.h>
+ #include <EGL/eglext.h>
++#include <EGL/eglmesaext.h>
+ #include <GLES2/gl2.h>
+ #include <GLES2/gl2ext.h>
+ 
