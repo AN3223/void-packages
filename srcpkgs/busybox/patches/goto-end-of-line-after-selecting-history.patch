@@ -1,0 +1,12 @@
+diff --git libbb/lineedit.c libbb/lineedit.c
+index c3ca551..c0c0ecb 100644
+--- libbb/lineedit.c
++++ libbb/lineedit.c
+@@ -2752,6 +2752,7 @@ int FAST_FUNC read_line_input(line_input_t *st, const char *prompt, char *comman
+ 					state->history[state->cur_history] : "");
+ 			/* redraw and go to eol (bol, in vi) */
+ 			redraw(cmdedit_y, (state->flags & VI_MODE) ? 9999 : 0);
++			put_till_end_and_adv_cursor();
+ 			break;
+ #endif
+ 		case KEYCODE_RIGHT:
