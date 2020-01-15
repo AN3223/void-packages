@@ -1,0 +1,43 @@
+diff --git src/nnn.c src/nnn.c
+index f751c6f..3c10e72 100644
+--- src/nnn.c
++++ src/nnn.c
+@@ -2202,6 +2202,11 @@ static char *xreadline(const char *prefill, const char *prompt)
+ 				case '\n': // fallthrough
+ 				case '\r':
+ 					goto END;
++				case CONTROL('D'):
++					if (pos < len)
++						++pos; // fallthrough
++					else
++						continue;
+ 				case 127: // fallthrough
+ 				case '\b': /* rhel25 sends '\b' for backspace */
+ 					if (pos > 0) {
+@@ -2211,6 +2216,26 @@ static char *xreadline(const char *prefill, const char *prompt)
+ 					} // fallthrough
+ 				case '\t': /* TAB breaks cursor position, ignore it */
+ 					continue;
++				case CONTROL('F'):
++					++pos;
++					continue;
++				case CONTROL('B'):
++					--pos;
++					continue;
++				case CONTROL('W'):
++					printprompt(prompt);
++					do {
++						if (pos == 0)
++							break;
++						memmove(buf + pos - 1, buf + pos,
++							(len - pos) * WCHAR_T_WIDTH);
++						--pos, --len;
++					} while (buf[pos-1] != ' ' && buf[pos-1] != '/');
++					continue;
++				case CONTROL('K'):
++					printprompt(prompt);
++					len = pos;
++					continue;
+ 				case CONTROL('L'):
+ 					printprompt(prompt);
+ 					len = pos = 0;
