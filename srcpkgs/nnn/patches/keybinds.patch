@@ -1,5 +1,8 @@
+diff --git src/nnn.h src/nnn.h
+index adebd69..e2201ab 100644
+--- src/nnn.h
 +++ src/nnn.h
-@@ -133,8 +133,10 @@
+@@ -120,8 +120,10 @@ static struct key bindings[] = {
  	{ KEY_UP,         SEL_PREV },
  	/* Page down */
  	{ KEY_NPAGE,      SEL_PGDN },
@@ -10,20 +13,12 @@
  	/* Ctrl+D */
  	{ CONTROL('D'),   SEL_CTRL_D },
  	/* Ctrl+U */
-@@ -189,7 +191,7 @@
- 	/* List archive */
- 	{ 'F',            SEL_ARCHIVELS },
- 	/* Extract archive */
--	{ CONTROL('F'),   SEL_EXTRACT },
-+	{ 'x',            SEL_EXTRACT },
- 	/* Toggle sort by size */
- 	{ 'z',            SEL_FSIZE },
- 	/* Sort by apparent size including dir contents */
-@@ -248,7 +250,6 @@
- 	{ '!',            SEL_SHELL },
- 	{ CONTROL(']'),   SEL_SHELL },
- 	/* Plugin key */
--	{ 'x',            SEL_PLUGKEY },
- 	{ ':',            SEL_PLUGKEY },
- 	{ ';',            SEL_PLUGKEY },
- 	/* Run a plugin */
+@@ -168,7 +170,7 @@ static struct key bindings[] = {
+ 	{ 'd',            SEL_DETAIL },
+ 	/* File details */
+ 	{ 'f',            SEL_STATS },
+-	{ CONTROL('F'),   SEL_STATS },
++	{ 'F',            SEL_STATS },
+ 	/* Toggle executable status */
+ 	{ '*',            SEL_CHMODX },
+ 	/* Create archive */
